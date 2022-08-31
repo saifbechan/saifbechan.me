@@ -1,4 +1,4 @@
-name: CI/CD [pr]
+name: CI/CD [pull_request]
 
 env:
   CI: true

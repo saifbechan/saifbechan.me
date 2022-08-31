@@ -28,7 +28,7 @@ const Contact = () => {
   ];
 
   return (
-    <Flex bottom="20px" gap={6} position="absolute" right="20px" role="contact">
+    <Flex bottom="20px" gap={6} pos="absolute" right="20px" role="contact">
       <VStack alignItems="flex-end">
         {links.map(({ icon, name, handle, href }: LinkType) => (
           <HStack key={name} justifyContent="flex-end">
