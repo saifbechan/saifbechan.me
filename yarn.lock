@@ -2000,10 +2000,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/inconsolata/-/inconsolata-4.5.7.tgz#7c9044f8b7754497ee7493bb6e38781e1fd5c239"
   integrity sha512-yKas++IyswpH+ngiSRnjehQuDvmyrSi6MdVOWsjijoj3pO0ZQfqpvl35lo8CG3fuoVH23CMmVmDG9JqFjI/q0A==
 
-"@fontsource/jura@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/jura/-/jura-4.5.11.tgz#105219390b7fc29d92a333917b26db0a5ac4ed82"
-  integrity sha512-w/cA8SYErF22ki/CwAEnwwTH9M490V7jvyTs2S9dJPre+MesuJqOqFKhsVPl6KArUZVxQ/WeaCRslBU9WOphAw==
+"@fontsource/jura@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/jura/-/jura-4.5.12.tgz#1d8f3f4aadd7d0d93129a0b238cb81c16741c09b"
+  integrity sha512-ZfdpRg0Gpag6xoXgubvwC1l0q2PS7YnVsBSvsM8HXJdkUcoJ4vu4uKpOezpUj84krANsEn2FhE3uJElXi7kPrg==
 
 "@fontsource/open-sans@^4.5.11":
   version "4.5.11"
