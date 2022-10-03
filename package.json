@@ -35,7 +35,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@fontsource/open-sans": "^4.5.11",
+    "@fontsource/open-sans": "^4.5.12",
     "@fontsource/raleway": "^4.5.10",
     "@playwright/test": "^1.26.1",
     "@testing-library/react": "^13.4.0",
