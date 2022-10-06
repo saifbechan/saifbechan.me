@@ -39,7 +39,7 @@
     "@fontsource/raleway": "^4.5.11",
     "@playwright/test": "^1.26.1",
     "@testing-library/react": "^13.4.0",
-    "@types/node": "18.8.0",
+    "@types/node": "18.8.2",
     "@types/p5": "^1.4.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
