@@ -59,7 +59,7 @@
     "prettier": "^2.7.1",
     "resize-observer-polyfill": "^1.5.1",
     "typescript": "4.8.4",
-    "vitest": "^0.24.1",
+    "vitest": "^0.24.3",
     "vitest-canvas-mock": "^0.2.0"
   },
   "engines": {
