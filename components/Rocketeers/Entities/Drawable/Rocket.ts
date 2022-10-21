@@ -35,7 +35,10 @@ export default class Rocket {
 
   isOffScreen(): boolean {
     return (
-      this.pos.y > this.p5.height || this.pos.x < 0 || this.pos.y < 0 || this.pos.x > this.p5.width
+      this.pos.y > this.p5.height ||
+      this.pos.x < 0 ||
+      this.pos.y < 0 ||
+      this.pos.x > this.p5.width
     );
   }
 

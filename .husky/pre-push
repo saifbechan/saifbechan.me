@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn type-check
-yarn lint
+yarn lint:all
 yarn test:ci
 yarn build
 PREPUSH=true yarn test:e2e

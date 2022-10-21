@@ -27,7 +27,13 @@ export default class Explosion {
   draw(p5: P5, pos: Vector): void {
     if (this.index > this.sprites.length) return;
 
-    p5.image(this.sprites[Math.floor(this.index) % this.sprites.length], pos.x, pos.y, 30, 30);
+    p5.image(
+      this.sprites[Math.floor(this.index) % this.sprites.length],
+      pos.x,
+      pos.y,
+      30,
+      30
+    );
 
     this.index += ExplosionConfig.SPEED;
   }

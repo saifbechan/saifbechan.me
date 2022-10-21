@@ -26,6 +26,12 @@ export default class Sun extends Obstacle {
 
   draw(): void {
     this.p5.imageMode(this.p5.CENTER);
-    this.p5.image(this.image, this.pos.x, this.pos.y, this.diameter * 2, this.diameter * 2);
+    this.p5.image(
+      this.image,
+      this.pos.x,
+      this.pos.y,
+      this.diameter * 2,
+      this.diameter * 2
+    );
   }
 }

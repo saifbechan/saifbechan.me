@@ -11,6 +11,7 @@
     "type-check": "tsc --pretty --noEmit",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "lint:all": "eslint .",
     "test": "vitest",
     "test:ci": "vitest run",
     "coverage": "vitest run --coverage",
@@ -18,7 +19,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.3.4",
+    "@chakra-ui/react": "2.3.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/bungee-outline": "^4.5.8",
@@ -39,7 +40,7 @@
     "@fontsource/raleway": "^4.5.11",
     "@playwright/test": "^1.27.1",
     "@testing-library/react": "^13.4.0",
-    "@types/node": "18.11.2",
+    "@types/node": "18.11.3",
     "@types/p5": "^1.4.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

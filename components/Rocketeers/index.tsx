@@ -43,7 +43,10 @@ const Rocketeers = () => {
           images.set(layout, p.loadImage(`images/${layout}.png`));
         });
 
-        images.set(Explosion.SPRITE, p.loadImage(`images/${Explosion.SPRITE}.png`));
+        images.set(
+          Explosion.SPRITE,
+          p.loadImage(`images/${Explosion.SPRITE}.png`)
+        );
       };
 
       p.setup = (): void => {
@@ -53,7 +56,11 @@ const Rocketeers = () => {
         mission = new Mission(
           p,
           images,
-          new Atlas(p, images, p.createGraphics(p.windowWidth - 4, p.windowHeight - 4))
+          new Atlas(
+            p,
+            images,
+            p.createGraphics(p.windowWidth - 4, p.windowHeight - 4)
+          )
         );
         mission.init(generation, steps, rocketeers);
       };

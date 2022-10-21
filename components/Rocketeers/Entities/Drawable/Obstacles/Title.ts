@@ -87,18 +87,30 @@ export default class Title extends Obstacle {
       case Viewport.XS:
         this.p5.textSize(10);
         this.p5.fill(255);
-        this.p5.text('artificial genetic algorithm by Saif Bechan', this.pos.x, this.pos.y + 20);
+        this.p5.text(
+          'artificial genetic algorithm by Saif Bechan',
+          this.pos.x,
+          this.pos.y + 20
+        );
         break;
       case Viewport.SM:
       case Viewport.MD:
         this.p5.textSize(14);
         this.p5.fill(255);
-        this.p5.text('artificial genetic algorithm by Saif Bechan', this.pos.x, this.pos.y + 25);
+        this.p5.text(
+          'artificial genetic algorithm by Saif Bechan',
+          this.pos.x,
+          this.pos.y + 25
+        );
         break;
       default:
         this.p5.textSize(16);
         this.p5.fill(255);
-        this.p5.text('artificial genetic algorithm by Saif Bechan', this.pos.x, this.pos.y + 30);
+        this.p5.text(
+          'artificial genetic algorithm by Saif Bechan',
+          this.pos.x,
+          this.pos.y + 30
+        );
     }
   }
 }

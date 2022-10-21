@@ -6,7 +6,12 @@ export default class Target {
   private readonly diameter: number;
   private readonly image: Image | Graphics | undefined;
 
-  constructor(p5: P5, pos: Vector, diameter: number, image: Image | Graphics | undefined) {
+  constructor(
+    p5: P5,
+    pos: Vector,
+    diameter: number,
+    image: Image | Graphics | undefined
+  ) {
     this.p5 = p5;
     this.pos = pos;
     this.image = image;
@@ -27,6 +32,12 @@ export default class Target {
     }
 
     this.p5.imageMode(this.p5.CENTER);
-    this.p5.image(this.image, this.pos.x, this.pos.y, this.diameter * 2, this.diameter * 2);
+    this.p5.image(
+      this.image,
+      this.pos.x,
+      this.pos.y,
+      this.diameter * 2,
+      this.diameter * 2
+    );
   }
 }

@@ -66,7 +66,8 @@ export default class Mission {
       const fitness = rocketeer.calcFitness(this.p5, lifespan);
       if (fitness > maxfit) {
         maxfit = fitness;
-        this.champion = rocketeer.countAndReturn() > 5 ? this.champion : rocketeer;
+        this.champion =
+          rocketeer.countAndReturn() > 5 ? this.champion : rocketeer;
       }
     });
     this.rocketeers.forEach((rocketeer: Rocketeer) => {
@@ -100,7 +101,9 @@ export default class Mission {
       rocketeer.update(step);
       this.trails.push(rocketeer.getRocketPosition());
       reached += rocketeer.getVisits();
-      maxtravel = Math.floor(Math.max(maxtravel, rocketeer.getRocketTravelled()));
+      maxtravel = Math.floor(
+        Math.max(maxtravel, rocketeer.getRocketTravelled())
+      );
     });
     this.statistics = {
       ...this.statistics,

@@ -23,7 +23,9 @@ class Instructions {
     partner: Instructions
   ): Vector[] => {
     const steps: Vector[] = new Array(lifespan);
-    const middle = current ? Math.floor(Math.random() * current.getLength()) : -1;
+    const middle = current
+      ? Math.floor(Math.random() * current.getLength())
+      : -1;
 
     for (let index = 0; index < lifespan; index += 1) {
       if (middle === -1 || !current.getStep(index) || !partner.getStep(index)) {
@@ -52,7 +54,8 @@ class Instructions {
     return p5.createVector(step.x, step.y).setMag(Evolution.MAX_FORCE);
   };
 
-  private createFromPrevious = (p5: P5, step: Vector): Vector => p5.createVector(step.x, step.y);
+  private createFromPrevious = (p5: P5, step: Vector): Vector =>
+    p5.createVector(step.x, step.y);
 
   getLength(): number {
     return this.steps.length;

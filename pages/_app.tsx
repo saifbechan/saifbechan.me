@@ -16,7 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
           name="viewport"
         />
-        <link href="/favicon.ico" rel="icon" sizes="64x64 32x32 24x24 16x16" type="image/x-icon" />
+        <link
+          href="/favicon.ico"
+          rel="icon"
+          sizes="64x64 32x32 24x24 16x16"
+          type="image/x-icon"
+        />
         <link href="/logo192.png" rel="apple-touch-icon" />
         <link href="/manifest.json" rel="manifest" />
         <meta charSet="utf-8" />
@@ -39,7 +44,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
         id="ga-datalayer"
       />
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Q372V016YB" />
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-Q372V016YB"
+      />
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>

@@ -22,13 +22,21 @@ export default class Rocketeer {
     closest: Infinity,
     reached: 0,
   };
-  private readonly logbook: Map<number, JourneyType> = new Map<number, JourneyType>();
+  private readonly logbook: Map<number, JourneyType> = new Map<
+    number,
+    JourneyType
+  >();
   private closest: number | undefined = undefined;
   private visits = 0;
   private crashed = 0;
   private fitness = 0;
 
-  constructor(atlas: Atlas, rocket: Rocket, instructions: Instructions, champion: number) {
+  constructor(
+    atlas: Atlas,
+    rocket: Rocket,
+    instructions: Instructions,
+    champion: number
+  ) {
     this.atlas = atlas;
     this.rocket = rocket;
     this.instructions = instructions;
@@ -101,7 +109,10 @@ export default class Rocketeer {
       };
       if (journey.reached > 0) return;
 
-      const distance = this.rocket.distanceTo(target.getPosition(), target.getDiameter());
+      const distance = this.rocket.distanceTo(
+        target.getPosition(),
+        target.getDiameter()
+      );
       const closest = Math.min(distance, journey.closest);
       if (index === this.closest && distance <= target.getDiameter()) {
         journey.reached = step;

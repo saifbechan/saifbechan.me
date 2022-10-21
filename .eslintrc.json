@@ -1,12 +1,17 @@
 {
   "parser": "@typescript-eslint/parser",
-
-  "plugins": ["@typescript-eslint", "sort-imports-es6-autofix", "unused-imports", "prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "sort-imports-es6-autofix",
+    "unused-imports",
+    "prettier"
+  ],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
+  "ignorePatterns": ["public/"],
   "rules": {
     "prettier/prettier": "error",
     "sort-imports-es6-autofix/sort-imports-es6": [
@@ -21,7 +26,12 @@
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
-      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": [
@@ -30,6 +40,9 @@
         "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
       }
     ],
-    "react/jsx-sort-props": [2, { "callbacksLast": true, "reservedFirst": true }]
+    "react/jsx-sort-props": [
+      2,
+      { "callbacksLast": true, "reservedFirst": true }
+    ]
   }
 }

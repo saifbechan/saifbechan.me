@@ -40,7 +40,13 @@ const Contact = () => {
         ))}
       </VStack>
       <Box role="logo">
-        <Image alt="Rocketeer" height="50" priority src={rocketeer} width="50" />
+        <Image
+          alt="Rocketeer"
+          height="50"
+          priority
+          src={rocketeer}
+          width="50"
+        />
       </Box>
     </Flex>
   );
