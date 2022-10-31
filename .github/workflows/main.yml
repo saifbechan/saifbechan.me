@@ -76,8 +76,6 @@ jobs:
     needs: [commitlint, code-quality, unit-tests]
     runs-on: ubuntu-20.04
     name: Deploy to Vercel Preview 🚀
-    outputs:
-      preview-url: ${{ steps.deploy-preview-url.outputs.preview-url }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -94,9 +92,9 @@ jobs:
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
       - name: Set preview url to output
         id: deploy-preview-url
-        run: echo "::set-output name=preview-url::$(cat deployment-url.txt)"
+        run: echo "{PREVIEW_URL}={$(cat deployment-url.txt)}" >> $GITHUB_OUTPUT
       - name: Preview URL available
-        run: echo "${{ steps.deploy-preview-url.outputs.preview-url }}"
+        run: echo "${{ steps.deploy-preview-url.outputs.PREVIEW_URL }}"
 
   e2e-tests:
     needs: [deploy-preview]
@@ -115,7 +113,7 @@ jobs:
       - name: Run e2e tests
         run: yarn test:e2e
         env:
-          BASE_URL: ${{needs.deploy-preview.outputs.preview-url}}
+          BASE_URL: ${{needs.deploy-preview.outputs.PREVIEW_URL}}
 
   deploy-production:
     needs: [e2e-tests]
