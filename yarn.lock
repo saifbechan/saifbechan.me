@@ -7037,10 +7037,10 @@ vite@^3.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitest-canvas-mock@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/vitest-canvas-mock/-/vitest-canvas-mock-0.2.0.tgz#244b96e21387ebfea2d511a2284784317e0005fa"
-  integrity sha512-ofAkKIaK74Na2lzCdbiT2kZxYRsxWZhCm2UN0ahvfsgzFCQ3Qqkvzb7fgfkS801rL5papzDrTK4KfuU1+u4UCg==
+vitest-canvas-mock@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/vitest-canvas-mock/-/vitest-canvas-mock-0.2.1.tgz#71f4b6305451730a0cd6fa9f431b86d7b94cb292"
+  integrity sha512-pBO5UhL1AsWCJeFhaATCt3DLD6kyBk3HDVnVC4vq71TXhuLheVG2S+RKCojIbHMpZYH0QBI3Nvf5Jk+P917EmA==
   dependencies:
     jest-canvas-mock "^2.4.0"
 
