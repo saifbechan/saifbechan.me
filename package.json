@@ -38,7 +38,7 @@
     "@commitlint/config-conventional": "^17.2.0",
     "@fontsource/open-sans": "^4.5.13",
     "@fontsource/raleway": "^4.5.11",
-    "@playwright/test": "^1.27.1",
+    "@playwright/test": "^1.28.0",
     "@testing-library/react": "^13.4.0",
     "@types/node": "18.11.9",
     "@types/p5": "^1.4.3",
