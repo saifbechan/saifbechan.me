@@ -10,7 +10,6 @@ const config: UserConfigExport = {
     environment: 'jsdom',
     deps: {
       inline: ['vitest-canvas-mock'],
-      fallbackCJS: true,
     },
     include: ['**/*.test.tsx'],
   },
