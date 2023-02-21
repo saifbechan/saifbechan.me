@@ -4472,10 +4472,10 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-framer-motion@^9.0.4:
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.4.tgz#69ff2e64fa40d7e7bdbde88cc4e3772247d622e1"
-  integrity sha512-lZ1+2/WBn8iYRYmeEFpu/X2fI1GNwJL+X21EpnWwKP3vkJsnWBXZF5kHF29wIPk9sBU2xDIpDm9SAVo206bp9A==
+framer-motion@^9.0.5:
+  version "9.0.5"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.5.tgz#d0ad8442746eb920772198a07bf73181d512a52f"
+  integrity sha512-IK2PrfFrtZAkRO0jWYB0N/XsBS4ipCm/MqNTvIf3nActXt5FkFBvIoDkg8CA2m9q2R1J/yvvfffhGiVbAIjfFw==
   dependencies:
     "@motionone/dom" "^10.15.3"
     hey-listen "^1.0.8"
