@@ -1,4 +1,4 @@
-import { bungeeOutline, inconsolata, jura } from '../lib/fonts';
+import { jura } from '../lib/fonts';
 import Script from 'next/script';
 
 import '../globals.css';
@@ -9,10 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      className={`${jura.variable} ${bungeeOutline.variable} ${inconsolata.variable} antialiased`}
-      lang="en"
-    >
+    <html className={`${jura.variable} antialiased`} lang="en">
       <head>
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
