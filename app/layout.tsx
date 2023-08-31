@@ -1,17 +1,19 @@
-import '@fontsource/bungee-outline';
-import '@fontsource/inconsolata';
-import '@fontsource/jura';
-
-import { ChakraProvider } from '@chakra-ui/react';
-import Head from 'next/head';
+import { bungeeOutline, inconsolata, jura } from '../lib/fonts';
 import Script from 'next/script';
-import theme from '../styles/theme';
-import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import '../globals.css';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
-      <Head>
+    <html
+      className={`${jura.variable} ${bungeeOutline.variable} ${inconsolata.variable} antialiased`}
+      lang="en"
+    >
+      <head>
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
           name="viewport"
@@ -31,8 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="react, typescript, javascript, p5js, github, nextjs, machine learning, genetic algorithm"
           name="keywords"
         />
-        <title>Genetic Algorithm V2</title>
-      </Head>
+      </head>
       <Script
         dangerouslySetInnerHTML={{
           __html: `
@@ -48,11 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-Q372V016YB"
       />
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </>
+      <body>{children}</body>
+    </html>
   );
 }
-
-export default MyApp;

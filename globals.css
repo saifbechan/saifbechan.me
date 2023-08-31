@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: rgb(20 21 38);
+    --secondary-color: rgba(20, 21, 38, 0.5);
+}
+
+html,
+body {
+    background-color: var(--primary-color);
+    color: white;
+    font-family: var(--font-jura);
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    text-shadow: 0 0 10px deeppink;
+    color: 'burlywood',
+}

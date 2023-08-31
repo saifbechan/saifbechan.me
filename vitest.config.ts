@@ -9,7 +9,11 @@ const config: UserConfigExport = {
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
     deps: {
-      inline: ['vitest-canvas-mock'],
+      optimizer: {
+        web: {
+          include: ['vitest-canvas-mock'],
+        },
+      },
     },
     include: ['**/*.test.tsx'],
   },

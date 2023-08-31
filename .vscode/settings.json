@@ -6,5 +6,8 @@
     "source.fixAll.eslint": true,
     "source.fixAll.format": true
   },
-  "prettier.configPath": ".prettierrc.js"
+  "prettier.configPath": ".prettierrc.js",
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
