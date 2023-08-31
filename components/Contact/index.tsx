@@ -1,11 +1,11 @@
-import { Box, Flex, HStack, Icon, VStack } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import { ComponentType } from 'react';
+import { IconBaseProps } from 'react-icons';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import rocketeer from './rocketeer.webp';
 
 type LinkType = {
-  icon: IconType;
+  Icon: ComponentType<IconBaseProps>;
   name: string;
   handle: string;
   href: string;
@@ -14,13 +14,13 @@ type LinkType = {
 const Contact = () => {
   const links: LinkType[] = [
     {
-      icon: FaGithub,
+      Icon: dynamic(async () => (await import('react-icons/fa')).FaGithub),
       name: 'github',
       handle: '@saifbechan',
       href: 'https://github.com/saifbechan',
     },
     {
-      icon: FaLinkedin,
+      Icon: dynamic(async () => (await import('react-icons/fa')).FaLinkedin),
       name: 'linkedIn',
       handle: '/in/saifbechan',
       href: 'https://www.linkedin.com/in/saifbechan/',
@@ -28,18 +28,18 @@ const Contact = () => {
   ];
 
   return (
-    <Flex bottom="20px" gap={6} pos="absolute" right="20px" role="contact">
-      <VStack alignItems="flex-end">
-        {links.map(({ icon, name, handle, href }: LinkType) => (
-          <HStack key={name} justifyContent="flex-end">
+    <div className="flex bottom-5 gap-6 absolute right-5" role="contact">
+      <div className="flex flex-col justify-between">
+        {links.map(({ Icon, name, handle, href }: LinkType) => (
+          <div key={name} className="flex items-center gap-1 justify-end">
             <a href={href} rel="noreferrer" target="_blank">
               {`${name}: ${handle}`}
             </a>
-            <Icon as={icon} cursor="pointer" ml={2} />
-          </HStack>
+            <Icon className="cursor-pointer ml-0.5" />
+          </div>
         ))}
-      </VStack>
-      <Box role="logo">
+      </div>
+      <div role="logo">
         <Image
           alt="Rocketeer"
           height="50"
@@ -47,8 +47,8 @@ const Contact = () => {
           src={rocketeer}
           width="50"
         />
-      </Box>
-    </Flex>
+      </div>
+    </div>
   );
 };
 
