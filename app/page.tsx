@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import Contact from '../components/Contact';
-import Rocketeers from '../components/Rocketeers';
+import Contact from '@/components/Contact';
+import Rocketeers from '@/components/Rocketeers';
 
 export const metadata: Metadata = {
   title: 'saifbechan.me :: rocketeers 🚀',

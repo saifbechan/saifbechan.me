@@ -1,7 +1,7 @@
-import { jura } from '../lib/fonts';
+import { jura } from '@/lib/fonts';
 import Script from 'next/script';
 
-import '../globals.css';
+import './globals.css';
 
 export default function RootLayout({
   children,
