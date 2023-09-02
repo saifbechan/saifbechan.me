@@ -2,9 +2,10 @@
 
 import { UserConfigExport, defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: UserConfigExport = {
-  plugins: [react()],
+  plugins: [tsconfigPaths(), react()],
   test: {
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',

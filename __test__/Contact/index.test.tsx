@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
-import Contact from '../../components/Contact';
+import Contact from '@/components/Contact';
 
 describe('Contact', () => {
   test('renders the logo correctly', () => {
