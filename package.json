@@ -30,7 +30,7 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@playwright/test": "^1.37.1",
     "@testing-library/react": "^14.0.0",
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.5",
     "@types/p5": "^1.7.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
