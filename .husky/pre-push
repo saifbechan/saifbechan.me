@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm type-check
-pnpm lint:all
-pnpm test:ci
-pnpm build
-pnpm test:e2e
+npm run type-check
+npm run lint:all
+npm run test:ci
+npm run build
+npm run test:e2e
