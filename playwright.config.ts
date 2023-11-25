@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
   outputDir: 'test-results/',
 
   webServer: {
-    command: 'pnpm start -p 3030',
+    command: 'npm run start -- -p 3030',
     port: 3030,
     timeout: 120 * 1000,
   },
