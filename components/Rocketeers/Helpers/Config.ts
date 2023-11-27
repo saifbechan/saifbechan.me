@@ -16,7 +16,7 @@ export enum Planets {
 }
 
 export enum Evolution {
-  MUTATION_RATE = 0.04,
+  MUTATION_RATE = 0.2,
   MAX_FORCE = 0.1,
 }
 

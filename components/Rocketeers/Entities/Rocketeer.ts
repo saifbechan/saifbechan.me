@@ -1,7 +1,6 @@
 import P5, { Vector } from 'p5';
 
 import Atlas from './Drawable/Atlas';
-import Instructions from './Instructions';
 import Obstacle from './Drawable/Obstacles/Obstacle';
 import Rocket from './Drawable/Rocket';
 import Target from './Drawable/Target';
@@ -14,9 +13,9 @@ type JourneyType = {
 export default class Rocketeer {
   private readonly atlas: Atlas;
   private readonly rocket: Rocket;
-  private readonly instructions: Instructions;
 
-  private champion = 0;
+  private readonly variation: number;
+
   private readonly journey: JourneyType = {
     distance: 0,
     closest: Infinity,
@@ -31,16 +30,10 @@ export default class Rocketeer {
   private crashed = 0;
   private fitness = 0;
 
-  constructor(
-    atlas: Atlas,
-    rocket: Rocket,
-    instructions: Instructions,
-    champion: number
-  ) {
+  constructor(atlas: Atlas, rocket: Rocket, variation: number) {
     this.atlas = atlas;
     this.rocket = rocket;
-    this.instructions = instructions;
-    this.champion = champion;
+    this.variation = variation;
   }
 
   normalizeFitness(maxfit: number): void {
@@ -81,13 +74,13 @@ export default class Rocketeer {
     return this.fitness;
   }
 
-  update(step: number): void {
+  update(step: number, pos: Vector): void {
     if (this.crashed > 0) {
       this.rocket.crash();
       return;
     }
 
-    this.rocket.update(this.instructions.getStep(step));
+    this.rocket.update(pos);
 
     this.atlas.getObstacles().forEach((obstacle: Obstacle) => {
       if (this.rocket.hasCrashedInto(obstacle)) {
@@ -100,6 +93,10 @@ export default class Rocketeer {
       return;
     }
 
+    this.rocket.draw(this.variation === 0);
+  }
+
+  getInputs(step: number): number[] {
     this.atlas.getTargets().forEach((target: Target, index: number) => {
       if (this.closest === undefined) {
         this.closest = index;
@@ -126,15 +123,16 @@ export default class Rocketeer {
       });
     });
 
-    this.rocket.draw(this.champion > 1);
+    return [
+      this.rocket.getPosition().x,
+      this.rocket.getPosition().y,
+      this.logbook.get(this.closest || 0)?.distance || 0,
+      this.visits,
+    ];
   }
 
   getFitness(): number {
     return this.fitness;
-  }
-
-  getInstructions(): Instructions {
-    return this.instructions;
   }
 
   getVisits(): number {
@@ -149,12 +147,7 @@ export default class Rocketeer {
     return this.rocket.getTravelled();
   }
 
-  toString(): string {
-    return `Travelled: ${this.getRocketTravelled()}`;
-  }
-
-  countAndReturn(): number {
-    this.champion += 1;
-    return this.champion;
+  getVariation(): number {
+    return this.variation;
   }
 }
