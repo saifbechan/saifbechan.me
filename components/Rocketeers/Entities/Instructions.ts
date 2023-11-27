@@ -1,68 +1,81 @@
-import P5, { Vector } from 'p5';
-
+import * as tf from '@tensorflow/tfjs';
 import { Evolution } from '../Helpers/Config';
+import {
+  Sequential,
+  Tensor,
+  layers,
+  randomNormal,
+  sequential,
+  tensor2d,
+  tidy,
+} from '@tensorflow/tfjs';
 
 class Instructions {
-  private readonly steps: Vector[];
+  private readonly variant: number;
+  private readonly network: Sequential;
 
-  constructor(p5: P5, lifespan: number, instructions: Instructions[]) {
-    const steps = this.crossover(
-      p5,
-      lifespan,
-      instructions[Math.floor(Math.random() * instructions.length)],
-      instructions[Math.floor(Math.random() * instructions.length)]
-    );
-
-    this.steps = this.mutate(p5, steps);
-  }
-
-  private crossover = (
-    p5: P5,
-    lifespan: number,
-    current: Instructions,
-    partner: Instructions
-  ): Vector[] => {
-    const steps: Vector[] = new Array(lifespan);
-    const middle = current
-      ? Math.floor(Math.random() * current.getLength())
-      : -1;
-
-    for (let index = 0; index < lifespan; index += 1) {
-      if (middle === -1 || !current.getStep(index) || !partner.getStep(index)) {
-        steps[index] = this.createRandom(p5);
-      } else if (index > middle) {
-        steps[index] = this.createFromPrevious(p5, current.getStep(index));
-      } else {
-        steps[index] = this.createFromPrevious(p5, partner.getStep(index));
-      }
-    }
-    return steps;
-  };
-
-  private mutate = (p5: P5, steps: Vector[]): Vector[] =>
-    steps.map((step) => {
-      if (this.shouldMutate()) {
-        return this.createRandom(p5);
-      }
-      return step;
+  constructor(variant: number, weights?: Tensor[]) {
+    this.variant = variant;
+    this.network = sequential({
+      layers: [
+        layers.dense({
+          units: 32,
+          inputShape: [4],
+          activation: 'sigmoid',
+        }),
+        layers.dense({
+          units: 2,
+          activation: 'tanh',
+        }),
+      ],
     });
 
-  private shouldMutate = (): boolean => Math.random() < Evolution.MUTATION_RATE;
-
-  private createRandom = (p5: P5): Vector => {
-    const step = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-    return p5.createVector(step.x, step.y).setMag(Evolution.MAX_FORCE);
-  };
-
-  private createFromPrevious = (p5: P5, step: Vector): Vector =>
-    p5.createVector(step.x, step.y);
-
-  getLength(): number {
-    return this.steps.length;
+    if (weights) {
+      this.network.setWeights(weights);
+    }
   }
 
-  getStep(index: number): Vector {
-    return this.steps[index];
+  mutate(): void {
+    tidy(() => {
+      const mutatedWeights = this.network.getWeights().map((tensor) => {
+        const shape = tensor.shape;
+        const values = tensor.dataSync().slice();
+
+        for (let i = 0; i < values.length; i++) {
+          if (Math.random() < Evolution.MUTATION_RATE) {
+            values[i] +=
+              randomNormal([1]).dataSync()[0] * Evolution.MUTATION_RATE;
+          }
+        }
+        return tf.tensor(values, shape);
+      });
+      this.network.setWeights(mutatedWeights);
+    });
+  }
+
+  getPredictions(inputs: number[][]): number[][] {
+    return tidy(() => {
+      const xs = tensor2d(inputs);
+      const ys = <Tensor>this.network.predict(xs);
+      const outputData = ys.dataSync();
+      const reshapedOutput: number[][] = [];
+      for (let i = 0; i < outputData.length; i += 2) {
+        reshapedOutput.push([outputData[i], outputData[i + 1]]);
+      }
+      return reshapedOutput;
+    });
+  }
+
+  getVariation(): number {
+    return this.variant;
+  }
+
+  getWeights(): Tensor[] {
+    return this.network.getWeights().slice();
+  }
+
+  dispose(): void {
+    this.network.dispose();
   }
 }
 

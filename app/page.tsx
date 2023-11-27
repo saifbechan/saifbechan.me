@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
 
 import Contact from '@/components/Contact';
-import Rocketeers from '@/components/Rocketeers';
+import dynamic from 'next/dynamic';
+
+const RocketeersComponent = dynamic(() => import('@/components/Rocketeers'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'saifbechan.me :: rocketeers 🚀',
+  metadataBase: new URL('https://saifbechan.me'),
   description:
     'Main website of Saif Bechan showcasing some awesome web development skills. Using a genetic algorithm these rocketeers will find their path across the galaxy.',
   twitter: {
@@ -43,7 +48,7 @@ export default function Page() {
   return (
     <>
       <main>
-        <Rocketeers />
+        <RocketeersComponent />
       </main>
       <footer>
         <Contact />

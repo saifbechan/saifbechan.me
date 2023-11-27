@@ -14,7 +14,6 @@ export default class Statistics implements Layout {
   draw(p5: P5, statistics: MissionStatistics): void {
     const texts: string[] = [
       `Framerate: ${Math.floor(p5.frameRate())}`,
-      `Instruction sets: ${statistics.instructions}`,
       `Generation: ${statistics.generation}`,
       `Lifespan: ${statistics.lifespan}`,
       `Fitness level: ${statistics.fitness}`,

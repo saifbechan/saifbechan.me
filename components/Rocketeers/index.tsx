@@ -13,8 +13,10 @@ const Rocketeers = () => {
   const inputEl: any = useRef(null);
 
   useEffect(() => {
-    const rocketeers = 100;
-    let steps = 600;
+    const rocketeers = 10;
+    const variations = 10;
+
+    let lifespan = 600;
     let generation = 1;
     let step = 0;
 
@@ -64,29 +66,32 @@ const Rocketeers = () => {
             p.createGraphics(p.windowWidth - 4, p.windowHeight - 4)
           )
         );
-        mission.init(generation, steps, rocketeers);
+
+        mission.create(generation, lifespan, rocketeers, variations);
       };
 
       p.draw = (): void => {
         p.background(20, 21, 38);
-        mission.run(step);
+        mission.run(p, step);
         step += 1;
-        if (step === steps) {
-          mission.evaluate(steps);
+        if (step === lifespan) {
+          mission.evaluate(lifespan);
+          mission.selection(variations);
+          mission.reproduction(variations);
 
           step = 0;
           generation += 1;
           if (generation >= 80) {
-            steps = 1600;
+            lifespan = 1600;
           } else if (generation >= 40) {
-            steps = 1400;
+            lifespan = 1400;
           } else if (generation >= 20) {
-            steps = 1000;
+            lifespan = 1000;
           } else if (generation >= 5) {
-            steps = 800;
+            lifespan = 800;
           }
 
-          mission.init(generation, steps, rocketeers);
+          mission.create(generation, lifespan, rocketeers, variations);
         }
       };
 

@@ -1,6 +1,6 @@
 import P5, { Graphics, Image, Vector } from 'p5';
 
-import { Ships } from '../../Helpers/Config';
+import { Evolution, Ships } from '../../Helpers/Config';
 import Explosion from './Explosion';
 import Obstacle from './Obstacles/Obstacle';
 
@@ -20,7 +20,10 @@ export default class Rocket {
     this.images = images;
     this.explosion = new Explosion(p5, images);
 
-    this.pos = p5.createVector(p5.width / 2, p5.height - 10);
+    this.pos = p5.createVector(
+      p5.random((p5.width / 4) * 1, (p5.width / 4) * 3),
+      p5.random((p5.height / 4) * 3, p5.height)
+    );
     this.vel = p5.createVector();
     this.acc = p5.createVector();
   }
@@ -50,16 +53,24 @@ export default class Rocket {
     return this.pos;
   }
 
-  update(step: Vector): void {
+  getHeading(): number {
+    return this.vel.heading();
+  }
+
+  getvelocity(): Vector {
+    return this.vel;
+  }
+
+  update(pos: Vector): void {
     const oldpos = this.pos.copy();
 
-    this.acc.add(step);
+    this.acc.add(pos.setMag(Evolution.MAX_FORCE));
     this.vel.add(this.acc);
 
     this.pos.add(this.vel);
 
     this.acc.mult(0);
-    this.vel.limit(3);
+    this.vel.limit(2);
 
     this.travelled += this.p5.dist(this.pos.x, this.pos.y, oldpos.x, oldpos.y);
   }
