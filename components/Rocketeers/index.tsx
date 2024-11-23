@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 
 import P5, { Image } from 'p5';
 
-import { Explosion, Obstacles, Planets, Ships } from './Helpers/Config';
 import Atlas from './Entities/Drawable/Atlas';
 import Mission from './Entities/Mission';
+import { Explosion, Obstacles, Planets, Ships } from './Helpers/Config';
 
 const Rocketeers = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,7 +27,7 @@ const Rocketeers = () => {
       inputEl.current = null;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const p5 = require('p5');
     inputEl.current = new p5((p: P5) => {
       p.preload = (): void => {

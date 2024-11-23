@@ -1,7 +1,7 @@
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { ComponentType } from 'react';
 import { IconBaseProps } from 'react-icons';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import rocketeer from './rocketeer.webp';
 
 type LinkType = {

@@ -1,13 +1,13 @@
 import P5, { Graphics, Image, Vector } from 'p5';
 
-import { MissionStatistics } from '../../Types/Statistics.type';
 import { Obstacles, Planets } from '../../Helpers/Config';
+import { MissionStatistics } from '../../Types/Statistics.type';
 import Layout from './Layout/Layout';
-import Obstacle from './Obstacles/Obstacle';
 import Statistics from './Layout/Statistics';
+import Obstacle from './Obstacles/Obstacle';
 import Sun from './Obstacles/Sun';
-import Target from './Target';
 import Title from './Obstacles/Title';
+import Target from './Target';
 
 export default class Atlas {
   private readonly layouts: Layout[] = [];
