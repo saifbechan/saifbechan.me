@@ -1,7 +1,6 @@
 import P5, { Image, Vector } from 'p5';
 
 import { Viewport, getViewport } from '../../../Helpers/Viewport';
-import { bungeeOutline, jura } from '@/lib/fonts';
 import Obstacle from './Obstacle';
 
 export default class Title extends Obstacle {
@@ -71,7 +70,7 @@ export default class Title extends Obstacle {
     const text = 'rocketeers';
     this.p5.stroke(255, 20, 147, 80);
     this.p5.strokeWeight(2);
-    this.p5.textFont(bungeeOutline.style.fontFamily);
+    this.p5.textFont('Bungee Outline');
     this.p5.textAlign(this.p5.CENTER);
     this.p5.textSize(this.height);
     this.p5.fill(255);
@@ -82,7 +81,7 @@ export default class Title extends Obstacle {
 
   private drawSubtitle(): void {
     this.p5.strokeWeight(1);
-    this.p5.textFont(jura.style.fontFamily);
+    this.p5.textFont('Jura');
     this.p5.textAlign(this.p5.CENTER);
     switch (getViewport(this.p5.width)) {
       case Viewport.XS:

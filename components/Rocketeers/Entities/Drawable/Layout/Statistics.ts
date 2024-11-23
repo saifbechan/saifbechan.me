@@ -1,7 +1,6 @@
 import P5, { Vector } from 'p5';
 
 import { MissionStatistics } from '../../../Types/Statistics.type';
-import { inconsolata } from '@/lib/fonts';
 import Layout from './Layout';
 
 export default class Statistics implements Layout {
@@ -21,7 +20,7 @@ export default class Statistics implements Layout {
       `Planets reached: ${statistics.reached}`,
     ];
 
-    p5.textFont(inconsolata.style.fontFamily);
+    p5.textFont('Inconsolata');
     p5.textAlign(p5.LEFT);
     p5.textSize(14);
     p5.fill(191, 191, 191);

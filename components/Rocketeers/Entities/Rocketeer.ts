@@ -1,10 +1,10 @@
 import P5, { Vector } from 'p5';
 
 import Atlas from './Drawable/Atlas';
-import Instructions from './Instructions';
 import Obstacle from './Drawable/Obstacles/Obstacle';
 import Rocket from './Drawable/Rocket';
 import Target from './Drawable/Target';
+import Instructions from './Instructions';
 
 type JourneyType = {
   distance: number;

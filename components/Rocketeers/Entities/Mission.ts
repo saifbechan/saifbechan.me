@@ -2,8 +2,8 @@ import P5, { Image, Vector } from 'p5';
 
 import { MissionStatistics } from '../Types/Statistics.type';
 import Atlas from './Drawable/Atlas';
-import Instructions from './Instructions';
 import Rocket from './Drawable/Rocket';
+import Instructions from './Instructions';
 import Rocketeer from './Rocketeer';
 
 export default class Mission {
